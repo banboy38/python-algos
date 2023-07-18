@@ -80,7 +80,7 @@ class SinglyLinkedList:
 
 #-----------------------------------------------------------------------------------------------#
 
-#Basic 0-1 Knapsack, DP and Recursive approach
+#Basic 0-1 Knapsack, DP and Recursive approach (FOR MAX WEIGHT AND MAX COST/VALUE)
 def knapsackDP(capacity, weights, values):
 
     dp = [0 for i in range(capacity+1)] 
@@ -96,7 +96,26 @@ def knapsack(capacity, weights, values, n):
     if weights[n-1] > capacity: return knapsack(capacity, weights, values, n-1)
 
     else: return max( values[n-1] + knapsack(capacity - weights[n-1], weights, values, n-1), knapsack(capacity, weights, values, n-1))
-#Minimum knapsack in which one element can be selected multiple times
+
+#Basic 0-1 Knapsack, DP and Recursive approach (FOR MAX WEIGHT AND MIN COST/VALUE)
+def knapsackDP(capacity, weight, cost):
+    
+    dp = [10**20 for i in range(capacity+1)]; dp[0] = 0        
+    for i in range(len(weight)):        
+        for w in range(capacity, weights[i]-1,-1):
+            dp[w] = min(dp[w], dp[w-weight[i]] + cost[i])
+    
+    return dp[capacity]
+
+def knapsack(capacity, weights, costs, n):
+    if capacity == 0: return 0
+    if n == 0: return 10**20
+
+    if weights[n-1] > capacity: return knapsack(capacity, weights, costs, n-1)
+
+    else: return min( costs[n-1] + knapsack(capacity - weights[n-1], weights, costs, n-1), knapsack(capacity, weights, costs, n-1))
+
+#Knapsack in which one element can be selected multiple times (FOR MAX WEIGHT AND MIN COST/VALUE)
 def minKnapsack(capacity, weights, cost):
     dp = [10**20 for i in range(capacity+1)]
     dp[0] = 0
