@@ -7,12 +7,20 @@ from heapq import heapify, heappop, heappush, heappushpop
 import fileinput
 from collections import defaultdict, deque
 
-#Python program to compute divisors of all numbers up to n efficiently
+# Contribution to Sum Technique - To calculate the cumulative sum of all subarrays of a given array in O(n)
+arr = [1,3,4,9,6,2,8,56,,6,5,12,5,6,25]; n = len(arr)
+ans = 0
+for i in range(n):
+    ans += arr[i]*(n-i)*(i+1)
+print(ans)
+
+#Python program to compute number of divisors of all numbers up to n efficiently
 def efficientDivisor(n):
     divisors = [0 for i in range(n+1)]
     for i in range(1, n+1):
         for j in range(2*i, n+1, i):
             divisors[j]+=1
+    print(divisors)
 
 #Graphs; it's traversals; it's operations
 from collections import defaultdict as dd
