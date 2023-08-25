@@ -441,16 +441,16 @@ class Trie:
         
 trie = Trie()
 
-trie.addWord('aeroplane')
-trie.addWord('aerosmith')
-trie.addWord('aether')
-trie.addWord('him')
-trie.addWord('himali')
-trie.addWord('himalaya')
+# trie.addWord('aeroplane')
+# trie.addWord('aerosmith')
+# trie.addWord('aether')
+# trie.addWord('him')
+# trie.addWord('himali')
+# trie.addWord('himalaya')
 
-print(f'\nIterative will give you a wierd order even idk:')
-trie.getWordsIterative()
-print(f'\nRecursive will give you the exact order of insertion:')
-trie.getWordsRecursive(trie.structure, '')
+# print(f'\nIterative will give you a wierd order even idk:')
+# trie.getWordsIterative()
+# print(f'\nRecursive will give you the exact order of insertion:')
+# trie.getWordsRecursive(trie.structure, '')
 
-print('\nWe can even get lexicographic order with a few tweaks in the iterative code. That is for you to figure out 😉.')
+# print('\nWe can even get lexicographic order with a few tweaks in the iterative code. That is for you to figure out 😉.')
