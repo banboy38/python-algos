@@ -393,3 +393,64 @@ for num in range(len(graph)):
         if bipartite(num) == -1: print(False); exit(0)
 
 print(True); exit(0)
+
+# ==========================================================================================#
+
+# Trie and it's basic functions
+
+class Trie:
+    def __init__(self):
+        self.structure = {}
+        
+    def addWord(self, word):
+        
+        curr = self.structure
+        for letter in word:
+            
+            if letter not in curr:
+                curr[letter] = {}
+            
+            curr = curr[letter]
+        
+        curr['end'] = 1
+        
+    def getWordsIterative(self):
+        
+        root = self.structure
+        stack = [(root, '')]
+        
+        while stack:
+            
+            currRoot, currWord = stack.pop()
+            if 'end' in currRoot: print(currWord)
+                
+            for letter in currRoot:
+                if letter != 'end':
+                    stack.append((currRoot[letter], currWord+letter))  
+    
+    
+    def getWordsRecursive(self, root, word):
+        
+        if 'end' in root: 
+            print(word)
+        
+        for letter in root:
+            if letter != 'end':
+                self.getWordsRecursive(root[letter], word+letter)
+        
+        
+trie = Trie()
+
+trie.addWord('aeroplane')
+trie.addWord('aerosmith')
+trie.addWord('aether')
+trie.addWord('him')
+trie.addWord('himali')
+trie.addWord('himalaya')
+
+print(f'\nIterative will give you a wierd order even idk:')
+trie.getWordsIterative()
+print(f'\nRecursive will give you the exact order of insertion:')
+trie.getWordsRecursive(trie.structure, '')
+
+print('\nWe can even get lexicographic order with a few tweaks in the iterative code. That is for you to figure out 😉.')
