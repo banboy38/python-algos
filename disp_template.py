@@ -454,3 +454,6 @@ trie = Trie()
 # trie.getWordsRecursive(trie.structure, '')
 
 # print('\nWe can even get lexicographic order with a few tweaks in the iterative code. That is for you to figure out 😉.')
+# =============================================================================================================================
+# BITMASKING
+# The last significant bit of a number is a divisor of the number
